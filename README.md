@@ -1,70 +1,134 @@
-# Getting Started with Create React App
+# 📝 Todo Summary Assistant
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack productivity web app to manage personal to-do items, generate AI-powered summaries using OpenAI, and send them to a Slack channel with a single click.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Features
 
-### `npm start`
+- ✅ Create, view, and delete to-do items
+- 🧠 Summarize all pending tasks using GPT-3.5
+- 💬 Automatically send summaries to Slack via webhook
+- 📡 Backend API with RESTful endpoints
+- 🔐 Environment-based configuration for secure API keys
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠️ Tech Stack
 
-### `npm test`
+| Layer       | Technology            |
+|-------------|------------------------|
+| Frontend    | React, Axios           |
+| Backend     | Node.js, Express       |
+| AI Service  | OpenAI API (GPT-3.5)   |
+| Messaging   | Slack Incoming Webhooks|
+| Hosting     | (Optional) Vercel, Render |
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🧾 Project Structure
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+todo-summary-assistant/
+├── backend/        # Express API
+│   ├── controllers/
+│   ├── routes/
+│   ├── index.js
+│   └── .env
+├── frontend/       # React app
+│   ├── src/
+│   └── ...
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## ⚙️ Setup Instructions
 
-### `npm run eject`
+### 🔹 1. Clone the Repository
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+git clone https://github.com/Mrakshaymehta/todo-summary-assistant.git
+cd todo-summary-assistant
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 🔹 2. Backend Setup
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+cd backend
+npm install
+```
 
-## Learn More
+Create a `.env` file:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```env
+OPENAI_API_KEY=your_openai_key
+SLACK_WEBHOOK_URL=https://hooks.slack.com/services/...
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Run the backend:
 
-### Code Splitting
+```bash
+node index.js
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+### 🔹 3. Frontend Setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+cd ../frontend
+npm install
+npm start
+```
 
-### Making a Progressive Web App
+Make sure the backend runs on `http://localhost:5000`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## 🔗 API Endpoints
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+| Method | Endpoint         | Description                      |
+|--------|------------------|----------------------------------|
+| GET    | `/todos`         | Fetch all to-do items            |
+| POST   | `/todos`         | Create a new to-do               |
+| DELETE | `/todos/:id`     | Delete a to-do by ID             |
+| POST   | `/summarize`     | Generate and post summary to Slack |
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 🔐 OpenAI Setup
 
-### `npm run build` fails to minify
+1. Visit [OpenAI Platform](https://platform.openai.com/account/api-keys)
+2. Generate an API key
+3. Add it to `.env` as `OPENAI_API_KEY`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## 💬 Slack Webhook Setup
+
+1. Go to your Slack workspace settings
+2. Create an [Incoming Webhook](https://api.slack.com/messaging/webhooks)
+3. Paste the URL in `.env` as `SLACK_WEBHOOK_URL`
+
+---
+
+## 📌 Future Enhancements
+
+- 🗃️ Replace in-memory storage with Supabase/PostgreSQL
+- 🔐 Add user authentication (e.g., Firebase/Auth0)
+- ☁️ Deploy frontend (Vercel) and backend (Render)
+
+---
+
+## 👨‍💻 Author
+
+**Akshay Mehta**  
+📎 [GitHub](https://github.com/Mrakshaymehta)
+
+---
+
+## 🌟 License
+
+This project is for educational/demo purposes. Feel free to fork and build on it.
