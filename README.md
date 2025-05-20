@@ -113,6 +113,12 @@ Make sure the backend runs on `http://localhost:5000`.
 3. Paste the URL in `.env` as `SLACK_WEBHOOK_URL`
 
 ---
+# 📝 Todo Summary Assistant
+
+🔗 **Live Frontend:** [https://todo-summary-assistant.vercel.app](https://todo-summary-assistant.vercel.app)  
+🔗 **Live Backend (API):** [https://todo-summary-backend.onrender.com](https://todo-summary-backend.onrender.com)
+
+A full-stack productivity web app to manage personal to-do items...
 
 ## 📌 Future Enhancements
 
